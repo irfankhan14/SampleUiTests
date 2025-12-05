@@ -1,12 +1,15 @@
 package net.yasik.sampleuitest
 
-import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-
-import org.junit.Assert.*
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -15,10 +18,21 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+
+    @get:Rule
+    val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java) // Correct: Declared as public
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("net.yasik.sampleuitest", appContext.packageName)
+    fun checkButtonClickPass() {
+        onView(withId(R.id.button_one)).perform(click())
+        onView(withId(R.id.button_two)).perform(click())
+        onView(withId(R.id.result)).check(matches(withText("12")))
+    }
+
+    @Test
+    fun checkButtonClickFailed() {
+        onView(withId(R.id.button_one)).perform(click())
+        onView(withId(R.id.button_two)).perform(click())
+        onView(withId(R.id.result)).check(matches(withText("21")))
     }
 }
