@@ -16,8 +16,19 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v4
 
-#    - name: Convert JUnit XML to CTRF
-#      run: npx junit-to-ctrf "app/etc/Passed.xml" -o ctrf/ctrf-report.json
+    - name: Convert JUnit XML to CTRF
+      run: npx junit-to-ctrf "app/etc/Passed.xml" -o app/etc/Passed.json
+
+    - name: Check for file using bash
+      run: |
+        FILE="app/etc/Passed.json"
+        if [ -f "$FILE" ]; then
+          echo "$FILE exists."
+        else
+          echo "$FILE not found."
+          exit 1 
+        fi
+        shell: bash
 
     - name: Publish Passed Test Report
       uses: ctrf-io/github-test-reporter@v1
@@ -35,21 +46,21 @@ jobs:
         upload-artifact: true
       if: always()
 
-    - name: Publish Failed Test Report
-      uses: ctrf-io/github-test-reporter@v1
-      if: always()
-      with:
-        report-path: 'app/etc/Failed.xml'
-        github-report: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload Failed test results
-      uses: ctrf-io/github-test-reporter@v1
-      with:
-        report-path: 'app/etc/Failed.xml'
-        upload-artifact: true
-      if: always()
+#    - name: Publish Failed Test Report
+#      uses: ctrf-io/github-test-reporter@v1
+#      if: always()
+#      with:
+#        report-path: 'app/etc/Failed.xml'
+#        github-report: true
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#
+#    - name: Upload Failed test results
+#      uses: ctrf-io/github-test-reporter@v1
+#      with:
+#        report-path: 'app/etc/Failed.xml'
+#        upload-artifact: true
+#      if: always()
 
 #    - name: Publish Test Report
 #      uses: ctrf-io/github-test-reporter@v1
