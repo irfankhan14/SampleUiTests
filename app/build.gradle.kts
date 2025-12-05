@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    jacoco
 }
 
 android {
@@ -20,6 +21,11 @@ android {
     }
 
     buildTypes {
+        buildTypes {
+            debug {
+                isTestCoverageEnabled = true
+            }
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -35,6 +41,14 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    tasks.withType<org.gradle.testing.jacoco.tasks.JacocoReport> {
+        reports {
+            xml.required = true
+            xml.outputLocation = layout.buildDirectory.file("reports/jacoco/jacocoTestReport.xml")
+        }
+    }
+
 }
 
 dependencies {
