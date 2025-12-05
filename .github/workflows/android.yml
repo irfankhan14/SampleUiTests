@@ -1,0 +1,41 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout the code
+      uses: actions/checkout@v4
+
+#    - name: Publish Test Report
+#      uses: ctrf-io/github-test-reporter@v1
+#      with:
+#        report-path: 'app/etc/*.json'
+#        pull-request-report: true
+#        summary-report: true
+#        failed-report: true
+#        flaky-report: true
+#        insights-report: true
+#        test-report: true
+#        # Order reports with the most important information first
+#        report-order: 'summary-report,failed-report,flaky-report,insights-report,test-report'
+#
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      if: always()
+#
+#    - name: Upload test results
+#      uses: ctrf-io/github-test-reporter@v1
+#      with:
+#        report-path: 'app/etc/*.json'
+#        upload-artifact: true
+#      if: always()

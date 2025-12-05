@@ -33,6 +33,7 @@ class ExampleInstrumentedTest {
     fun checkButtonClickFailed() {
         onView(withId(R.id.button_one)).perform(click())
         onView(withId(R.id.button_two)).perform(click())
-        onView(withId(R.id.result)).check(matches(withText("21")))
+        onView(withId(R.id.button_plus)).perform(click())
+        onView(withId(R.id.result)).check(matches(withText("12+")))
     }
 }
