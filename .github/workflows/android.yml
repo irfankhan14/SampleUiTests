@@ -20,6 +20,7 @@ jobs:
       run: npx junit-to-ctrf "app/etc/Passed.xml" -o app/etc/Passed.json
 
     - name: Check for file using bash
+      shell: bash
       run: |
         FILE="app/etc/Passed.json"
         if [ -f "$FILE" ]; then
@@ -28,13 +29,13 @@ jobs:
           echo "$FILE not found."
           exit 1 
         fi
-        shell: bash
+    
 
     - name: Publish Passed Test Report
       uses: ctrf-io/github-test-reporter@v1
       if: always()
       with:
-        report-path: 'app/etc/Passed.xml'
+        report-path: 'app/etc/Passed.json'
         github-report: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +43,7 @@ jobs:
     - name: Upload Passed test results
       uses: ctrf-io/github-test-reporter@v1
       with:
-        report-path: 'app/etc/Passed.xml'
+        report-path: 'app/etc/Passed.json'
         upload-artifact: true
       if: always()
 
