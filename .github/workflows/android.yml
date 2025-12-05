@@ -16,10 +16,10 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v4
 
-    - name: Convert JUnit XML to CTRF
-      run: npx junit-to-ctrf "app/etc/Passed.xml" -o ctrf/ctrf-report.json
+#    - name: Convert JUnit XML to CTRF
+#      run: npx junit-to-ctrf "app/etc/Passed.xml" -o ctrf/ctrf-report.json
 
-    - name: Publish Test Report
+    - name: Publish Passed Test Report
       uses: ctrf-io/github-test-reporter@v1
       if: always()
       with:
@@ -27,6 +27,29 @@ jobs:
         github-report: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload Passed test results
+      uses: ctrf-io/github-test-reporter@v1
+      with:
+        report-path: 'app/etc/Passed.xml'
+        upload-artifact: true
+      if: always()
+
+    - name: Publish Failed Test Report
+      uses: ctrf-io/github-test-reporter@v1
+      if: always()
+      with:
+        report-path: 'app/etc/Failed.xml'
+        github-report: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload Failed test results
+      uses: ctrf-io/github-test-reporter@v1
+      with:
+        report-path: 'app/etc/Failed.xml'
+        upload-artifact: true
+      if: always()
 
 #    - name: Publish Test Report
 #      uses: ctrf-io/github-test-reporter@v1
