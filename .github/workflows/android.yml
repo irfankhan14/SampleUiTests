@@ -16,6 +16,18 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v4
 
+    - name: Convert JUnit XML to CTRF
+      run: npx junit-to-ctrf "app/etc/Passed.xml" -o ctrf/ctrf-report.json
+
+    - name: Publish Test Report
+      uses: ctrf-io/github-test-reporter@v1
+      if: always()
+      with:
+        report-path: 'app/etc/Passed.xml'
+        github-report: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 #    - name: Publish Test Report
 #      uses: ctrf-io/github-test-reporter@v1
 #      with:

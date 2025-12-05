@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="net.yasik.sampleuitest.ExampleInstrumentedTest" tests="2" failures="0" errors="0" skipped="0" time="12.857" timestamp="2025-12-05T13:08:52" hostname="localhost">
+  <properties>
+    <property name="device" value="CPH2001 - 11" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="checkButtonClickFailed" classname="net.yasik.sampleuitest.ExampleInstrumentedTest" time="2.06" />
+  <testcase name="checkButtonClickPass" classname="net.yasik.sampleuitest.ExampleInstrumentedTest" time="1.438" />
+</testsuite>
