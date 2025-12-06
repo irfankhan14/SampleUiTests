@@ -7,8 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-
+  BuildUnitTest:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,14 +31,14 @@ jobs:
           exit 1 
         fi
 
-#    - name: Publish Passed Test Report
-#      uses: ctrf-io/github-test-reporter@v1
-#      if: ${{ steps.file-exists.outcome == 'success' }}
-#      with:
-#        report-path: 'app/etc/Passed.json'
-#        github-report: true
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Publish Passed Test Report
+      uses: ctrf-io/github-test-reporter@v1
+      if: ${{ steps.file-exists.outcome == 'success' }}
+      with:
+        report-path: 'app/etc/Passed.json'
+        github-report: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload Passed test results
       uses: ctrf-io/github-test-reporter@v1
