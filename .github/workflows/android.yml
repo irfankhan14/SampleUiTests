@@ -15,14 +15,14 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v4
 
-    - name: Convert Passed JUnit XML file to CTRF JSON Format
-      run: npx junit-to-ctrf "app/etc/Passed.xml" -o app/etc/Passed.json
+    - name: Convert Failed JUnit XML file to CTRF JSON Format
+      run: npx junit-to-ctrf "app/etc/Failed.xml" -o app/etc/Failed.json
 
-    - name: Check if Passed File contains using bash
+    - name: Check if Failed File contains using bash
       id: file-exists
       shell: bash
       run: |
-        FILE="app/etc/Passed.json"
+        FILE="app/etc/Failed.json"
         if [ -f "$FILE" ]; then
           echo "$FILE exists."
           exit 0
@@ -31,18 +31,18 @@ jobs:
           exit 1 
         fi
 
-    - name: Publish Passed Test Report
+    - name: Publish Failed Test Report
       uses: ctrf-io/github-test-reporter@v1
       if: ${{ steps.file-exists.outcome == 'success' }}
       with:
-        report-path: 'app/etc/Passed.json'
+        report-path: 'app/etc/Failed.json'
         github-report: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload Passed test results
+    - name: Upload Failed test results
       uses: ctrf-io/github-test-reporter@v1
       if: ${{ steps.file-exists.outcome == 'success' }}
       with:
-        report-path: 'app/etc/Passed.json'
+        report-path: 'app/etc/Failed.json'
         upload-artifact: true
