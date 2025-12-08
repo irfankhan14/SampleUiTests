@@ -66,10 +66,5 @@
             at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1049)
         </failure>
     </testcase>
-    <testcase name="checkButtonClickMultiply" classname="net.yasik.sampleuitest.ExampleInstrumentedTest" time="2.38" >
-        <failure>androidx.test.espresso.base.DefaultFailureHandler$AssertionFailedWithCauseError: 'with text: is "21"' doesn't match the selected view.
-            Expected: with text: is "21"
-            Got: "MaterialTextView{id=2131231080, res-name=result, visibility=VISIBLE, width=1080, height=200, has-focus=false, has-focusable=false, has-window-focus=true, is-clickable=false, is-enabled=true, is-focused=false, is-focusable=false, is-layout-requested=false, is-selected=false, layout-params=android.widget.LinearLayout$LayoutParams&#64;144e2a5, tag=null, root-is-layout-requested=false, has-input-connection=false, x=0.0, y=150.0, text=12, input-type=0, ime-target=false, has-links=false}"
-        </failure>
-    </testcase>
+    <testcase name="checkButtonClickMultiply" classname="net.yasik.sampleuitest.ExampleInstrumentedTest" time="2.38" />
 </testsuite>
