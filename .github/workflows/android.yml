@@ -15,27 +15,27 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v4
 
-    - name: Convert Sample JUnit XML file to CTRF JSON Format
-      run: npx junit-to-ctrf "app/etc/sample.xml" -o app/etc/sample.json
-
-    - name: Check if Sample File contains using bash
-      id: file-exists
-      shell: bash
-      run: |
-        FILE="app/etc/sample.json"
-        if [ -f "$FILE" ]; then
-          echo "$FILE exists."
-          exit 0
-        else
-          echo "$FILE not found."
-          exit 1 
-        fi
+#    - name: Convert Sample JUnit XML file to CTRF JSON Format
+#      run: npx junit-to-ctrf "app/etc/sample.xml" -o app/etc/sample.json
+#
+#    - name: Check if Sample File contains using bash
+#      id: file-exists
+#      shell: bash
+#      run: |
+#        FILE="app/etc/sample.json"
+#        if [ -f "$FILE" ]; then
+#          echo "$FILE exists."
+#          exit 0
+#        else
+#          echo "$FILE not found."
+#          exit 1
+#        fi
 
 
     - name: Publish Sample Report with Insights
       uses: ctrf-io/github-test-reporter@v1
       with:
-        report-path: 'app/etc/sample.json'
+        report-path: 'app/etc/ik.json'
         summary-delta-report: true
         insights-report: true
         flaky-rate-report: true

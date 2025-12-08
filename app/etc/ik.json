@@ -1,0 +1,68 @@
+{
+  "reportFormat": "CTRF",
+  "specVersion": "0.0.0",
+  "generatedBy": "junit-to-ctrf",
+  "timestamp": "2025-12-08T06:07:20.844Z",
+  "results": {
+    "tool": {
+      "name": "junit-to-ctrf"
+    },
+    "summary": {
+      "tests": 3,
+      "passed": 1,
+      "failed": 2,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 0,
+      "stop": 0
+    },
+    "tests": [
+      {
+        "name": "net.yasik.sampleuitest.ExampleInstrumentedTest: checkButtonClickAdd",
+        "status": "passed",
+        "duration": 1438,
+        "suite": [
+          "net.yasik.sampleuitest.ExampleInstrumentedTest"
+        ]
+      },
+      {
+        "name": "net.yasik.sampleuitest.ExampleInstrumentedTest: checkButtonClickSubtract",
+        "status": "failed",
+        "duration": 2060,
+        "suite": [
+          "net.yasik.sampleuitest.ExampleInstrumentedTest"
+        ]
+      },
+      {
+        "name": "net.yasik.sampleuitest.ExampleInstrumentedTest: checkButtonClickMultiply",
+        "status": "failed",
+        "duration": 2380,
+        "suite": [
+          "net.yasik.sampleuitest.ExampleInstrumentedTest"
+        ]
+      }
+    ],
+    "environment": {
+      "buildName": "BuildUnitTest",
+      "buildNumber": 18,
+      "buildUrl": "https://github.com/irfankhan14/SampleUiTests/actions/runs/20018440631#summary",
+      "buildId": "20018440631",
+      "branchName": "master"
+    }
+  },
+  "extra": {
+    "reportConditionals": {
+      "includeFailedReportCurrentFooter": false,
+      "includeFlakyReportCurrentFooter": true,
+      "includeFailedReportAllFooter": false,
+      "includeFlakyReportAllFooter": true,
+      "includeMeasuredOverFooter": false,
+      "includeSkippedReportCurrentFooter": false,
+      "includeSkippedReportAllFooter": false,
+      "showSkippedReports": false,
+      "showFailedReports": true,
+      "showFlakyReports": true
+    }
+  }
+}
