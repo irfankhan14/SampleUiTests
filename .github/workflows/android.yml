@@ -31,13 +31,13 @@ jobs:
           exit 1 
         fi
 
-
     - name: Publish Sample Report with Insights
       uses: ctrf-io/github-test-reporter@v1
       with:
         report-path: 'app/etc/sample.json'
         summary-delta-report: true
         insights-report: true
+        flaky-report: true
         flaky-rate-report: true
         fail-rate-report: true
         slowest-report: true
