@@ -38,6 +38,7 @@ jobs:
         report-path: 'app/etc/sample.json'
         github-report: true
         summary-report: true
+        flaky-rate-report: true
         failed-report: true
         flaky-report: true
         insights-report: true
