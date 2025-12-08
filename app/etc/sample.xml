@@ -14,7 +14,6 @@
             at dalvik.system.VMStack.getThreadStackTrace(Native Method)
             at java.lang.Thread.getStackTrace(Thread.java:1736)
             at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:16)
-            at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:36)
             at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:103)
             at androidx.test.espresso.ViewInteraction.check(ViewInteraction.java:31)
             at net.yasik.sampleuitest.ExampleInstrumentedTest.checkButtonClickFailed(ExampleInstrumentedTest.kt:36)
