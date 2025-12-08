@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="com.example.UnitTests" tests="6" failures="1" errors="1" skipped="1" time="0.350">
+    <testsuite name="com.example.UnitTests" tests="6" failures="1" errors="1" skipped="0" time="0.350">
         <testcase name="testAddition" classname="com.example.UnitTests" time="0.015"/>
         <testcase name="testSubtraction" classname="com.example.UnitTests" time="0.010"/>
         <testcase name="testMultiplication" classname="com.example.UnitTests" time="0.020">
@@ -9,7 +9,7 @@
             </failure>
         </testcase>
         <testcase name="testDivision" classname="com.example.UnitTests" time="0.000">
-            <skipped/>
+
         </testcase>
         <testcase name="testModulo" classname="com.example.UnitTests" time="0.005">
             <error message="NullPointerException occurred" type="java.lang.NullPointerException">
