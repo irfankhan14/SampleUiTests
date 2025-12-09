@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.FlakyTestExample" tests="7" skipped="0" failures="3" errors="0" timestamp="2025-09-19T09:20:57.277Z" hostname="localhost" time="0.873">
+<testsuite name="com.example.FlakyTestExample" tests="7" skipped="0" failures="2" errors="0" timestamp="2025-09-19T09:20:57.277Z" hostname="localhost" time="0.873">
   <properties/>
   <testcase name="reliable test - should always pass()" classname="com.example.FlakyTestExample" time="0.021"/>
   <testcase name="predictable flaky test - passes on second attempt()" classname="com.example.FlakyTestExample" time="0.023">
@@ -16,13 +16,7 @@
 </stackTrace>
     </flakyFailure>
   </testcase>
-  <testcase name="timing-based flaky test - fails on quick execution()" classname="com.example.FlakyTestExample" time="0.04">
-    <flakyFailure message="java.lang.RuntimeException: Test failed due to timing - execution too quick: 12ms (required: 35ms, attempt: 1)" type="java.lang.RuntimeException">
-      <stackTrace>java.lang.RuntimeException: Test failed due to timing - execution too quick: 12ms (required: 35ms, attempt: 1)
-      at com.example.FlakyTestExample.timing-based flaky test - fails on quick execution(FlakyTestExample.kt:76)
-</stackTrace>
-    </flakyFailure>
-  </testcase>
+  
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
