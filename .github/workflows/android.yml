@@ -15,14 +15,14 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v4
 
-    - name: Convert Sample JUnit XML file to CTRF JSON Format
-      run: npx junit-to-ctrf "app/etc/sample.xml" -o app/etc/sample.json
+    - name: Convert Test JUnit XML file to CTRF JSON Format
+      run: npx junit-to-ctrf "app/etc/test.xml" -o app/etc/test.json
 
-    - name: Check if Sample File contains using bash
+    - name: Check if Test File contains using bash
       id: file-exists
       shell: bash
       run: |
-        FILE="app/etc/sample.json"
+        FILE="app/etc/test.json"
         if [ -f "$FILE" ]; then
           echo "$FILE exists."
           exit 0
@@ -31,10 +31,10 @@ jobs:
           exit 1 
         fi
 
-    - name: Publish Sample Report with Insights
+    - name: Publish Test Report with Insights
       uses: ctrf-io/github-test-reporter@v1
       with:
-        report-path: 'app/etc/sample.json'
+        report-path: 'app/etc/test.json'
         summary-delta-report: true
         insights-report: true
         flaky-report: true
@@ -42,6 +42,7 @@ jobs:
         fail-rate-report: true
         slowest-report: true
         previous-results-report: true
+        fetch-previous-results: true
         upload-artifact: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
