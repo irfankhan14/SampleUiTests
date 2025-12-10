@@ -48,4 +48,6 @@ jobs:
         previous-results-report: true
         fetch-previous-results: true
         upload-artifact: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       if: always()
