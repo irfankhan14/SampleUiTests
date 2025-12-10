@@ -48,6 +48,4 @@ jobs:
         previous-results-report: true
         fetch-previous-results: true
         upload-artifact: true
-      env:
-        IK_TOKEN: ${{ secrets.IK_TOKEN }}
       if: always()
