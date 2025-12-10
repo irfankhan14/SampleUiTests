@@ -45,5 +45,5 @@ jobs:
         fetch-previous-results: true
         upload-artifact: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        IK_TOKEN: ${{ secrets.IK_TOKEN }}
       if: always()
