@@ -38,5 +38,5 @@ jobs:
     - name: Publish Test Report with Insights
       uses: asadmansr/android-test-report-action@v1.2.0
       with:
-        report-paths: 'app/etc/test.json'
+        args: 'app/etc/test.json'
       if: always()
