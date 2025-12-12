@@ -36,8 +36,18 @@ jobs:
         fi
 
     - name: Publish Test Report with Insights
-      uses: asadmansr/android-test-report-action@v1.2.0
+      uses: ctrf-io/github-test-reporter@v1
       with:
-        args: 'app/etc/test.json'
+        report-path: 'app/etc/test.json'
+        summary-delta-report: true
+        insights-report: true
+        flaky-report: true
+        flaky-rate-report: true
+        fail-rate-report: true
+        slowest-report: true
+        previous-results-report: true
+        fetch-previous-results: true
         upload-artifact: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       if: always()
