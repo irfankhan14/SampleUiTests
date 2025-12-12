@@ -39,6 +39,7 @@ jobs:
       uses: ctrf-io/github-test-reporter@v1
       with:
         report-path: 'app/etc/test.json'
+        github-report: true
         summary-delta-report: true
         insights-report: true
         flaky-report: true
